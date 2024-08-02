@@ -1,0 +1,42 @@
+$CMSInstance = "SQL-FWAOPS05"
+$ServersPath = "C:\SQLList\SQLList.txt"
+
+
+#Load SMO assemplies
+[System.Reflection.Assembly]::LoadWithPartialName('Microsoft.SqlServer.SMO') | out-null
+[System.Reflection.Assembly]::LoadWithPartialName('Microsoft.SqlServer.Management.RegisteredServers') | out-null
+[System.Reflection.Assembly]::LoadWithPartialName('Microsoft.SqlServer.Management.Common') | out-null
+
+
+$connectionString = "Data Source=$CMSINstance;Initial Catalog=master;Integrated Security=SSPI;"
+$sqlConnection = new-object System.Data.SqlClient.SqlConnection($connectionString)
+$conn = new-object Microsoft.SqlServer.Management.Common.ServerConnection($sqlConnection)
+$CMSStore = new-object Microsoft.SqlServer.Management.RegisteredServers.RegisteredServersStore($conn)
+$CMSDBStore = $CMSStore.ServerGroups["DatabaseEngineServerGroup"]
+
+$Servers = Import-Csv -Delimiter "|" -Header "Name","Instance" -Path $ServersPath
+
+foreach($Server in $Servers)
+{
+#Put this in loop to deal with duplicates in list itself
+      $AlreadyRegisteredServers = @()
+$CMSDBStore.GetDescendantRegisteredServers()|%{$AlreadyRegisteredServers +=$_.Name.Trim()}
+
+$RegServerName = $Server.Name
+$RegServerInstance = $Server.Instance
+
+if($AlreadyRegisteredServers -notcontains $RegServerName)
+      {
+Write-Host "Adding Server $RegServerName"
+$NewServer = New-Object Microsoft.SqlServer.Management.REgisteredServers.RegisteredServer($CMSDBStore, "$RegServerName")
+$secureString = ConvertTo-SecureString "server=$RegServerInstance;integrated security=true" -AsPlainText -Force
+$NewServer.SecureConnectionString = $secureString
+$NewServer.ConnectionString = "server=$RegServerInstance;integrated security=true"
+##$NewServer.ServerName = "$RegServerInstance"
+$NewServer.Create()
+      }
+else
+      {
+Write-Host "Server $RegServerName already exists - cannot add."
+      }
+}
