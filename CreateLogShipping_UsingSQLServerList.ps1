@@ -1,6 +1,6 @@
 ﻿Set-DbatoolsInsecureConnection
 # Caminho para o arquivo CSV
-$configFilePath = "E:\DBA\SQLServerInstanceList_Test.csv"
+$configFilePath = "E:\DBA\SQLServerInstances.csv"
 
 # Ler cada linha do CSV e executar o processo de log shipping para cada configuração
 Import-Csv -Path $configFilePath | ForEach-Object {
@@ -31,8 +31,11 @@ Import-Csv -Path $configFilePath | ForEach-Object {
         RestoreScheduleFrequencySubdayInterval = 15
         CompressBackup                      = $true
         Force                               = $true
+        #WhatiF                              = $true
     }
 
-    # Executar o comando Invoke-DbaDbLogShipping com os parâmetros
+    #$params
+    
+    #Executar o comando Invoke-DbaDbLogShipping com os parâmetros
     Invoke-DbaDbLogShipping @params
 }

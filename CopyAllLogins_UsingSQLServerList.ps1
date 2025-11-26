@@ -1,11 +1,14 @@
 ﻿Set-DbatoolsInsecureConnection
 # Caminho para o arquivo CSV
-$configFilePath = "E:\DBA\SQLServerInstanceList_Test.csv"
+$configFilePath = "E:\DBA\SQLServerInstances_Phase5.csv"
 
 # Ler cada linha do CSV e executar o processo de log shipping para cada configuração
 Import-Csv -Path $configFilePath | ForEach-Object {
 
     $SourceInstanceName = ( $_.SourceSqlInstance -split '\\')[1]
+
+    Write-Host "=== Instance $SourceInstanceName ==="
+
 
     # Alterar o banco de dados padrão de todos os logins para master
     Get-DbaLogin -SqlInstance $_.SourceSqlInstance | ForEach-Object {

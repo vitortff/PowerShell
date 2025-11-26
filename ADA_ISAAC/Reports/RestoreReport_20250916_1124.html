@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head><meta charset='UTF-8'><title>Restore Summary Report</title><style>
+  body { font-family:Arial,sans-serif; margin:20px; background:#f5f6fa; color:#2e2e2e; }
+  .header { display:flex; align-items:center; gap:20px; margin-bottom:20px; }
+  .subheader { color:#666; margin-top:4px; }
+  .tabs { margin-bottom:10px; }
+  table { width:100%; border-collapse:collapse; margin-bottom:20px; }
+  th, td { padding:10px; border:1px solid #ccc; vertical-align:top; }
+  th { background:#e1e5ea; }
+  td pre { font-family:Consolas, monospace; white-space:pre-wrap; word-break:break-word; margin:0; }
+  .toggle-btn { border:none; border-radius:4px; padding:6px 12px; font-weight:bold; cursor:pointer; margin-right:5px; }
+  .btn-success { background:#2e7d32; color:#fff; }
+  .btn-error   { background:#c62828; color:#fff; }
+  .btn-file    { background:#0077c8; color:#fff; }
+  .hidden-block { display:none; margin-top:8px; padding:8px; background:#f0f0f0; border:1px dashed #aaa; }
+  .missing-bad { background:#b71c1c; color:#fff; font-weight:bold; text-align:center; }
+  .missing-ok  { background:#81c784; color:#fff; font-weight:bold; text-align:center; }
+  .center { text-align:center; vertical-align:middle; }
+</style>
+<script>
+function toggleBlock(id) {
+  var el = document.getElementById(id);
+  if (el) {
+    el.style.display = (el.style.display==='none')? 'block':'none';
+  }
+}
+</script></head>
+<body>
+  <div class='header'>
+    <img src='file:///E:/TOOLS/HADES/images.png' alt='Logo' style='height:120px;'/>
+    <div>
+      <h1 style='color:#0077c8; font-size:32px; margin:0;'>Restore Summary Report</h1>
+      <div class='subheader'>Generated at 2025-09-16 11:24:50</div>
+      <div class='subheader'>Mode: <b>CheckOnly</b></div>
+    </div>
+  </div><h2>Instance: SQL2019TEST\I1 (<span style='color:#c62828;font-weight:bold'>✖ Disk NOT OK</span>)</h2>
+<div class='tabs'><button class='toggle-btn btn-file' onclick="toggleBlock('disk_SQL2019TEST_I1')">Disk Summary</button><button class='toggle-btn btn-file' onclick="toggleBlock('restore_SQL2019TEST_I1')">Restore Summary</button></div>
+<div id='disk_SQL2019TEST_I1' class='hidden-block'>
+<h3>Disk Summary - SQL2019TEST\I1</h3>
+<table><thead><tr><th>Volume</th><th>Needed GB</th><th>Available GB</th><th>Missing GB</th></tr></thead><tbody>
+<tr><td class='center'>F:</td><td class='center'>895.8</td><td class='center'>0</td><td class='missing-bad'>895.8</td></tr>
+<tr><td class='center'>I:</td><td class='center'>29.99</td><td class='center'>0</td><td class='missing-bad'>29.99</td></tr>
+</tbody></table>
+</div>
+<div id='restore_SQL2019TEST_I1' class='hidden-block'>
+<h3>Restore Summary - SQL2019TEST\I1</h3>
+<table><thead><tr><th>Database</th><th>Backup File</th><th>Duration</th><th>Details</th><th>File List</th></tr></thead><tbody>
+<tr>
+  <td class='center'>Hades</td>
+  <td><pre>\\SQL-FWAOPS05\Backup\Hades\Hades_COPYONLY_FULL_20250913_134952.bak</pre></td>
+  <td class='center'>00:00:00</td>
+  <td class='center'>
+    <button class='toggle-btn btn-error' onclick='toggleBlock("details_SQL2019TEST_I1_0")'>Error</button>
+    <div id='details_SQL2019TEST_I1_0' class='hidden-block'><pre>Disk space check failed: Missing space on some volumes.</pre></div>
+  </td>
+  <td class='center'>
+    <button class='toggle-btn btn-file' onclick='toggleBlock("files_SQL2019TEST_I1_0")'>File List</button>
+    <div id='files_SQL2019TEST_I1_0' class='hidden-block'>
+      <table>
+        <thead><tr><th>LogicalName</th><th>FilePath</th><th>Size GB</th></tr></thead>
+        <tbody><tr><td class='center'>Hades</td><td><pre>F:\Program Files\Microsoft SQL Server\MSSQL15.I1\MSSQL\Data\Hades.mdf</pre></td><td class='center'>0.01</td></tr>
+<tr><td class='center'>Hades_log</td><td><pre>I:\Program Files\Microsoft SQL Server\MSSQL15.I1\MSSQL\Data\Hades_log.ldf</pre></td><td class='center'>0.01</td></tr>
+</tbody>
+      </table>
+    </div>
+  </td>
+</tr><tr>
+  <td class='center'>DBADashDB</td>
+  <td><pre>\\SQL-FWAOPS05\Backup\DBADashDB\DBADashDB_COPYONLY_FULL_20250913_131751.bak</pre></td>
+  <td class='center'>00:00:00</td>
+  <td class='center'>
+    <button class='toggle-btn btn-error' onclick='toggleBlock("details_SQL2019TEST_I1_1")'>Error</button>
+    <div id='details_SQL2019TEST_I1_1' class='hidden-block'><pre>Disk space check failed: Missing space on some volumes.</pre></div>
+  </td>
+  <td class='center'>
+    <button class='toggle-btn btn-file' onclick='toggleBlock("files_SQL2019TEST_I1_1")'>File List</button>
+    <div id='files_SQL2019TEST_I1_1' class='hidden-block'>
+      <table>
+        <thead><tr><th>LogicalName</th><th>FilePath</th><th>Size GB</th></tr></thead>
+        <tbody><tr><td class='center'>DBADashDB</td><td><pre>F:\Program Files\Microsoft SQL Server\MSSQL15.I1\MSSQL\Data\DBADashDB_Primary.mdf</pre></td><td class='center'>778.95</td></tr>
+<tr><td class='center'>DBADashDB_log</td><td><pre>I:\Program Files\Microsoft SQL Server\MSSQL15.I1\MSSQL\Data\DBADashDB_Primary.ldf</pre></td><td class='center'>26.07</td></tr>
+</tbody>
+      </table>
+    </div>
+  </td>
+</tr></tbody></table>
+</div>
+<h2>Instance: SQL2019TEST\I2 (<span style='color:#c62828;font-weight:bold'>✖ Disk NOT OK</span>)</h2>
+<div class='tabs'><button class='toggle-btn btn-file' onclick="toggleBlock('disk_SQL2019TEST_I2')">Disk Summary</button><button class='toggle-btn btn-file' onclick="toggleBlock('restore_SQL2019TEST_I2')">Restore Summary</button></div>
+<div id='disk_SQL2019TEST_I2' class='hidden-block'>
+<h3>Disk Summary - SQL2019TEST\I2</h3>
+<table><thead><tr><th>Volume</th><th>Needed GB</th><th>Available GB</th><th>Missing GB</th></tr></thead><tbody>
+<tr><td class='center'>I:</td><td class='center'>29.99</td><td class='center'>0</td><td class='missing-bad'>29.99</td></tr>
+<tr><td class='center'>F:</td><td class='center'>895.8</td><td class='center'>0</td><td class='missing-bad'>895.8</td></tr>
+</tbody></table>
+</div>
+<div id='restore_SQL2019TEST_I2' class='hidden-block'>
+<h3>Restore Summary - SQL2019TEST\I2</h3>
+<table><thead><tr><th>Database</th><th>Backup File</th><th>Duration</th><th>Details</th><th>File List</th></tr></thead><tbody>
+<tr>
+  <td class='center'>Hades</td>
+  <td><pre>\\SQL-FWAOPS05\Backup\Hades\Hades_COPYONLY_FULL_20250913_134952.bak</pre></td>
+  <td class='center'>00:00:00</td>
+  <td class='center'>
+    <button class='toggle-btn btn-error' onclick='toggleBlock("details_SQL2019TEST_I2_0")'>Error</button>
+    <div id='details_SQL2019TEST_I2_0' class='hidden-block'><pre>Disk space check failed: Missing space on some volumes.</pre></div>
+  </td>
+  <td class='center'>
+    <button class='toggle-btn btn-file' onclick='toggleBlock("files_SQL2019TEST_I2_0")'>File List</button>
+    <div id='files_SQL2019TEST_I2_0' class='hidden-block'>
+      <table>
+        <thead><tr><th>LogicalName</th><th>FilePath</th><th>Size GB</th></tr></thead>
+        <tbody><tr><td class='center'>Hades</td><td><pre>F:\Program Files\Microsoft SQL Server\MSSQL15.I2\MSSQL\Data\Hades.mdf</pre></td><td class='center'>0.01</td></tr>
+<tr><td class='center'>Hades_log</td><td><pre>I:\Program Files\Microsoft SQL Server\MSSQL15.I2\MSSQL\Data\Hades_log.ldf</pre></td><td class='center'>0.01</td></tr>
+</tbody>
+      </table>
+    </div>
+  </td>
+</tr><tr>
+  <td class='center'>DBADashDB</td>
+  <td><pre>\\SQL-FWAOPS05\Backup\DBADashDB\DBADashDB_COPYONLY_FULL_20250913_131751.bak</pre></td>
+  <td class='center'>00:00:00</td>
+  <td class='center'>
+    <button class='toggle-btn btn-error' onclick='toggleBlock("details_SQL2019TEST_I2_1")'>Error</button>
+    <div id='details_SQL2019TEST_I2_1' class='hidden-block'><pre>Disk space check failed: Missing space on some volumes.</pre></div>
+  </td>
+  <td class='center'>
+    <button class='toggle-btn btn-file' onclick='toggleBlock("files_SQL2019TEST_I2_1")'>File List</button>
+    <div id='files_SQL2019TEST_I2_1' class='hidden-block'>
+      <table>
+        <thead><tr><th>LogicalName</th><th>FilePath</th><th>Size GB</th></tr></thead>
+        <tbody><tr><td class='center'>DBADashDB</td><td><pre>F:\Program Files\Microsoft SQL Server\MSSQL15.I2\MSSQL\Data\DBADashDB_Primary.mdf</pre></td><td class='center'>778.95</td></tr>
+<tr><td class='center'>DBADashDB_log</td><td><pre>I:\Program Files\Microsoft SQL Server\MSSQL15.I2\MSSQL\Data\DBADashDB_Primary.ldf</pre></td><td class='center'>26.07</td></tr>
+</tbody>
+      </table>
+    </div>
+  </td>
+</tr></tbody></table>
+</div>
+<h2>Instance: SQL2019TEST\I3 (<span style='color:#c62828;font-weight:bold'>✖ Disk NOT OK</span>)</h2>
+<div class='tabs'><button class='toggle-btn btn-file' onclick="toggleBlock('disk_SQL2019TEST_I3')">Disk Summary</button><button class='toggle-btn btn-file' onclick="toggleBlock('restore_SQL2019TEST_I3')">Restore Summary</button></div>
+<div id='disk_SQL2019TEST_I3' class='hidden-block'>
+<h3>Disk Summary - SQL2019TEST\I3</h3>
+<table><thead><tr><th>Volume</th><th>Needed GB</th><th>Available GB</th><th>Missing GB</th></tr></thead><tbody>
+<tr><td class='center'>I:</td><td class='center'>29.99</td><td class='center'>0</td><td class='missing-bad'>29.99</td></tr>
+<tr><td class='center'>F:</td><td class='center'>895.8</td><td class='center'>0</td><td class='missing-bad'>895.8</td></tr>
+</tbody></table>
+</div>
+<div id='restore_SQL2019TEST_I3' class='hidden-block'>
+<h3>Restore Summary - SQL2019TEST\I3</h3>
+<table><thead><tr><th>Database</th><th>Backup File</th><th>Duration</th><th>Details</th><th>File List</th></tr></thead><tbody>
+<tr>
+  <td class='center'>Hades</td>
+  <td><pre>\\SQL-FWAOPS05\Backup\Hades\Hades_COPYONLY_FULL_20250913_134952.bak</pre></td>
+  <td class='center'>00:00:00</td>
+  <td class='center'>
+    <button class='toggle-btn btn-error' onclick='toggleBlock("details_SQL2019TEST_I3_0")'>Error</button>
+    <div id='details_SQL2019TEST_I3_0' class='hidden-block'><pre>Disk space check failed: Missing space on some volumes.</pre></div>
+  </td>
+  <td class='center'>
+    <button class='toggle-btn btn-file' onclick='toggleBlock("files_SQL2019TEST_I3_0")'>File List</button>
+    <div id='files_SQL2019TEST_I3_0' class='hidden-block'>
+      <table>
+        <thead><tr><th>LogicalName</th><th>FilePath</th><th>Size GB</th></tr></thead>
+        <tbody><tr><td class='center'>Hades</td><td><pre>F:\Program Files\Microsoft SQL Server\MSSQL15.I3\MSSQL\Data\Hades.mdf</pre></td><td class='center'>0.01</td></tr>
+<tr><td class='center'>Hades_log</td><td><pre>I:\Program Files\Microsoft SQL Server\MSSQL15.I3\MSSQL\Data\Hades_log.ldf</pre></td><td class='center'>0.01</td></tr>
+</tbody>
+      </table>
+    </div>
+  </td>
+</tr><tr>
+  <td class='center'>DBADashDB</td>
+  <td><pre>\\SQL-FWAOPS05\Backup\DBADashDB\DBADashDB_COPYONLY_FULL_20250913_131751.bak</pre></td>
+  <td class='center'>00:00:00</td>
+  <td class='center'>
+    <button class='toggle-btn btn-error' onclick='toggleBlock("details_SQL2019TEST_I3_1")'>Error</button>
+    <div id='details_SQL2019TEST_I3_1' class='hidden-block'><pre>Disk space check failed: Missing space on some volumes.</pre></div>
+  </td>
+  <td class='center'>
+    <button class='toggle-btn btn-file' onclick='toggleBlock("files_SQL2019TEST_I3_1")'>File List</button>
+    <div id='files_SQL2019TEST_I3_1' class='hidden-block'>
+      <table>
+        <thead><tr><th>LogicalName</th><th>FilePath</th><th>Size GB</th></tr></thead>
+        <tbody><tr><td class='center'>DBADashDB</td><td><pre>F:\Program Files\Microsoft SQL Server\MSSQL15.I3\MSSQL\Data\DBADashDB_Primary.mdf</pre></td><td class='center'>778.95</td></tr>
+<tr><td class='center'>DBADashDB_log</td><td><pre>I:\Program Files\Microsoft SQL Server\MSSQL15.I3\MSSQL\Data\DBADashDB_Primary.ldf</pre></td><td class='center'>26.07</td></tr>
+</tbody>
+      </table>
+    </div>
+  </td>
+</tr></tbody></table>
+</div>
+<h2>Instance: SQL2019TEST\I4 (<span style='color:#c62828;font-weight:bold'>✖ Disk NOT OK</span>)</h2>
+<div class='tabs'><button class='toggle-btn btn-file' onclick="toggleBlock('disk_SQL2019TEST_I4')">Disk Summary</button><button class='toggle-btn btn-file' onclick="toggleBlock('restore_SQL2019TEST_I4')">Restore Summary</button></div>
+<div id='disk_SQL2019TEST_I4' class='hidden-block'>
+<h3>Disk Summary - SQL2019TEST\I4</h3>
+<table><thead><tr><th>Volume</th><th>Needed GB</th><th>Available GB</th><th>Missing GB</th></tr></thead><tbody>
+<tr><td class='center'>I:</td><td class='center'>29.99</td><td class='center'>0</td><td class='missing-bad'>29.99</td></tr>
+<tr><td class='center'>F:</td><td class='center'>895.8</td><td class='center'>0</td><td class='missing-bad'>895.8</td></tr>
+</tbody></table>
+</div>
+<div id='restore_SQL2019TEST_I4' class='hidden-block'>
+<h3>Restore Summary - SQL2019TEST\I4</h3>
+<table><thead><tr><th>Database</th><th>Backup File</th><th>Duration</th><th>Details</th><th>File List</th></tr></thead><tbody>
+<tr>
+  <td class='center'>Hades</td>
+  <td><pre>\\SQL-FWAOPS05\Backup\Hades\Hades_COPYONLY_FULL_20250913_134952.bak</pre></td>
+  <td class='center'>00:00:00</td>
+  <td class='center'>
+    <button class='toggle-btn btn-error' onclick='toggleBlock("details_SQL2019TEST_I4_0")'>Error</button>
+    <div id='details_SQL2019TEST_I4_0' class='hidden-block'><pre>Disk space check failed: Missing space on some volumes.</pre></div>
+  </td>
+  <td class='center'>
+    <button class='toggle-btn btn-file' onclick='toggleBlock("files_SQL2019TEST_I4_0")'>File List</button>
+    <div id='files_SQL2019TEST_I4_0' class='hidden-block'>
+      <table>
+        <thead><tr><th>LogicalName</th><th>FilePath</th><th>Size GB</th></tr></thead>
+        <tbody><tr><td class='center'>Hades</td><td><pre>F:\Program Files\Microsoft SQL Server\MSSQL15.I4\MSSQL\Data\Hades.mdf</pre></td><td class='center'>0.01</td></tr>
+<tr><td class='center'>Hades_log</td><td><pre>I:\Program Files\Microsoft SQL Server\MSSQL15.I4\MSSQL\Data\Hades_log.ldf</pre></td><td class='center'>0.01</td></tr>
+</tbody>
+      </table>
+    </div>
+  </td>
+</tr><tr>
+  <td class='center'>DBADashDB</td>
+  <td><pre>\\SQL-FWAOPS05\Backup\DBADashDB\DBADashDB_COPYONLY_FULL_20250913_131751.bak</pre></td>
+  <td class='center'>00:00:00</td>
+  <td class='center'>
+    <button class='toggle-btn btn-error' onclick='toggleBlock("details_SQL2019TEST_I4_1")'>Error</button>
+    <div id='details_SQL2019TEST_I4_1' class='hidden-block'><pre>Disk space check failed: Missing space on some volumes.</pre></div>
+  </td>
+  <td class='center'>
+    <button class='toggle-btn btn-file' onclick='toggleBlock("files_SQL2019TEST_I4_1")'>File List</button>
+    <div id='files_SQL2019TEST_I4_1' class='hidden-block'>
+      <table>
+        <thead><tr><th>LogicalName</th><th>FilePath</th><th>Size GB</th></tr></thead>
+        <tbody><tr><td class='center'>DBADashDB</td><td><pre>F:\Program Files\Microsoft SQL Server\MSSQL15.I4\MSSQL\Data\DBADashDB_Primary.mdf</pre></td><td class='center'>778.95</td></tr>
+<tr><td class='center'>DBADashDB_log</td><td><pre>I:\Program Files\Microsoft SQL Server\MSSQL15.I4\MSSQL\Data\DBADashDB_Primary.ldf</pre></td><td class='center'>26.07</td></tr>
+</tbody>
+      </table>
+    </div>
+  </td>
+</tr></tbody></table>
+</div>
+</body>
+</html>

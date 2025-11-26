@@ -10,5 +10,6 @@ Import-Csv -Path $configFilePath | ForEach-Object {
     
 
     #$sqlQuery
+    $_.SourceSqlInstance
     Invoke-SqlCmd -ServerInstance $_.SourceSqlInstance -Query $sqlQuery
 }

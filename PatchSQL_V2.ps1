@@ -8,7 +8,7 @@ Import-Module dbatools -Force
 $ServersConfig = 'E:\DBA\servers_test.json'
 $LogFile       = 'E:\DBA\SqlPatching.log'
 $ReportHtml    = 'E:\DBA\SqlPatchingReport.html'
-$DownloadOnly  = $false
+$DownloadOnly  = $true
 $AutoFailover  = $false
 
 Update-DbaBuildReference -Verbose

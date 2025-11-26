@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head><meta charset='UTF-8'><title>Restore Report</title><style>
+  body { font-family:Arial; margin:20px; background:#f5f6fa; color:#2e2e2e; }
+  .header { display:flex; align-items:center; gap:20px; margin-bottom:20px; }
+  .subheader { color:#666; margin-top:4px; }
+  .tab { overflow:hidden; border-bottom:1px solid #ccc; margin-bottom:20px; }
+  .tab button { background:#e1e5ea; border:none; outline:none; padding:10px 20px; cursor:pointer; }
+  .tab button.active { background:#ffffff; border-top:2px solid #0077c8; }
+  .tabcontent { display:none; }
+  .tabcontent.active { display:block; }
+  table { width:100%; border-collapse:collapse; width:100%; }
+  th, td { padding:10px; border:1px solid #ccc; vertical-align:top; }
+  th { background:#e1e5ea; }
+  td.center { text-align:center; vertical-align:middle; }
+  .success { background:#d4edda; }
+  .error   { background:#f8d7da; }
+  pre { font-family:Consolas, monospace; white-space:pre-wrap; word-break:break-word; }
+  .toggle-btn { cursor:pointer; border:none; background:none; font-weight:bold; color:#0077c8; }
+  .tsql-block { display:none; margin-top:8px; padding:8px; background:#f0f0f0; border:1px dashed #aaa; }
+</style>
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tabbuttons;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; tabcontent[i].classList.remove("active"); }
+    tabbuttons = document.getElementsByClassName("tabbutton");
+    for (i = 0; i < tabbuttons.Length; i++) { tabbuttons[i].classList.remove("active"); }
+    document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
+window.onload = function() { document.getElementsByClassName("tabbutton")[0].click(); }
+</script></head>
+<body>
+  <div class='header'>
+    <img src='file:///E:\TOOLS\HADES\images.png' alt='Logo' style='height:120px;' />
+    <div><h1 style='color:#0077c8; font-size:32px; margin:0;'>Restore Report - SQL-FWAOPS05</h1><div class='subheader'>Generated at 2025-09-13 14:13:00</div></div>
+  </div>
+  <div class='tab'>
+    <button class='tabbutton' onclick='openTab(event, "Disk")'>Disk Plan</button>
+    <button class='tabbutton' onclick='openTab(event, "Restore")'>Restore</button>
+  </div>
+  <div id='Disk' class='tabcontent'>
+    <h3>Instance: SQL-FWAOPS05</h3>
+<table><thead><tr><th>Volume</th><th>Needed (GB)</th><th>Available (GB)</th><th>Missing (GB)</th><th>#Files</th></tr></thead><tbody></tbody></table>
+
+  </div>
+  <div id='Restore' class='tabcontent'>
+    
+  </div>
+</body>
+</html>
